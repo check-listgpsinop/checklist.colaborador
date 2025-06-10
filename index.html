@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist Usuário e Máquina</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 10px; }
+    h1 { text-align: center; }
+    h2 { margin-top: 10px; }
+    .section {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  width: 95%;
+}
+
+.page-break {
+  break-before: page;
+  page-break-before: always;
+}
+    .checkbox-group {
+      display: block;
+    }
+    .checkbox-group label {
+      display: inline-block;
+      width: 30%;
+      margin-bottom: 5px;
+    }
+    label { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
+    input[type=text], textarea {
+      width: 100%;
+      padding: 1px;
+      margin-top: 1px;
+    }
+    .page-break {
+      page-break-before: always;
+      break-before: always;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    @page {
+      size: A4;
+      margin: 1mm;
+    }
+    #dez{
+      margin-top: 10px;
+    }
+    #quatro{
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="checklist">
+
+<h1>Checklist - Colaborador</h1>
+
+<div class="section">
+  <h2>Dados do Atendimento</h2>
+  <label> Técnico Executor: <input type="text" placeholder="Insira o nome do técnico que realizou seu atendimento"> </label>
+  <label> Data: <input type="date" placeholder="__/__/____"> </label>
+  <label> Tipo: 
+    <input type="checkbox"> Desktop 
+    <input type="checkbox"> Notebook
+  </label>
+  <label> Filial: <input type="text"> </label>
+  <label> Nome do Usuário: <input type="text"> </label>
+  <label> Nº Patrimônio: <input type="text"> </label>
+  <label> Setor: <input type="text"> </label>
+  <label> Chamado: <input type="text"> </label>
+</div>
+
+<div class="section">
+  <h2>1. Backup</h2>
+  <label><input type="checkbox"> Arquivo foi Restaurado - SIM</label>
+  <label><input type="checkbox"> Arquivo foi Restaurado - NÃO</label>
+</div>
+
+<div class="section">
+  <h2>2. Programas Padrão</h2>
+  <div class="checkbox-group">
+    <label><input type="checkbox"> Java</label>
+    <label><input type="checkbox"> Pacote Office</label>
+    <label><input type="checkbox"> Microsoft Teams</label>
+    <label><input type="checkbox"> Milvus</label>
+    <label><input type="checkbox"> AnyDesk</label>
+    <label><input type="checkbox"> Bitdefender</label>
+    <label><input type="checkbox"> Google Chrome</label>
+    <label><input type="checkbox"> WinRar</label>
+    <label><input type="checkbox"> Adobe Reader</label>
+    <label><input type="checkbox"> RM</label>
+    <label><input type="checkbox"> OneDrive</label>
+  </div>
+  <label><b>Necessário outro programa?</b> <input type="text" placeholder="Especifique"></label>
+</div>
+
+<div class="section">
+  <h2>3. Configurações do Windows</h2>
+  <div class="checkbox-group">
+    <label><input type="checkbox"> Conta de E-mail - Outlook</label>
+    <label><input type="checkbox"> Alterar Senha Windows</label>
+    <label><input type="checkbox"> Assinatura de E-mail</label>
+    <label><input type="checkbox"> Horário Windows</label>
+    <label><input type="checkbox"> Windows 10 Pro/11</label>
+    <label><input type="checkbox"> OneDrive</label>
+  </div>
+  <label><b>Configuração Realizada? </b>
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+</div>
+
+<div class="page-break"></div>
+
+<div class="section" id="quatro">
+  <h2>4. Periféricos</h2>
+  <div class="checkbox-group">
+    <label><input type="checkbox"> Teclado</label>
+    <label><input type="checkbox"> Mouse</label>
+    <label><input type="checkbox"> Fone</label>
+    <label><input type="checkbox"> Adaptador de Rede</label>
+    <label><input type="checkbox"> Áudio</label>
+    <label><input type="checkbox"> Câmera</label>
+    <label><input type="checkbox"> Monitor externo</label>
+    <label><input type="checkbox"> Fonte/Carregado</label>
+    <label><input type="checkbox"> Suporte de tela</label>
+    <label><input type="checkbox"> Apoio para pés</label>
+    <label><input type="checkbox"> Suporte de Notebook</label>
+  </div>
+  <label>Tomada 
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+  <label>Nobreak 
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+  <label><b>Estão funcionando? </b>
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+</div>
+
+<div class="section">
+  <h2>5. Impressoras</h2>
+  <label>Impressora Filial? 
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+  <label><input type="checkbox"> Impressora/Scanner</label>
+  <label><input type="checkbox"> Teste de Impressão e Scanner</label>
+  <label><b>Estão funcionando? </b> 
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+</div>
+
+<div class="section">
+  <h2>6. Acesso aos Sistemas</h2>
+  <div class="checkbox-group">
+    <label><input type="checkbox"> Milvus</label>
+    <label><input type="checkbox"> Microsoft Teams</label>
+    <label><input type="checkbox"> RM</label>
+  </div>
+  <label>Outros: <input type="text"></label>
+  <label><b>Estão funcionando? </b> 
+    <input type="checkbox"> SIM 
+    <input type="checkbox"> NÃO
+  </label>
+</div>
+
+<div class="section" id="dez">
+  <h2>7. Softwares Especiais</h2>
+  <div class="checkbox-group">
+    <label><input type="checkbox"> AutoCAD</label>
+    <label><input type="checkbox"> 3DS Max</label>
+    <label><input type="checkbox"> Chaos Corona</label>
+    <label><input type="checkbox"> Chaos Vantage</label>
+    <label><input type="checkbox"> Métrica Topologia</label>
+    <label><input type="checkbox"> Revit</label>
+    <label><input type="checkbox"> Photoshop</label>
+    <label><input type="checkbox"> Dropbox</label>
+    <label><input type="checkbox"> RD Station</label>
+    <label><input type="checkbox"> Capcut</label>
+    <label><input type="checkbox"> Think Cell</label>
+    <label><input type="checkbox"> Pro Saneamento</label>
+  </div>
+  <div><h2>Observações</h2>
+    <textarea rows="4" placeholder="Digite aqui..."></textarea>
+  </div>
+</div>
+
+</div>
+
+<button class="button" onclick="gerarPDF()">Gerar PDF</button>
+
+<script>
+  function gerarPDF() {
+    const element = document.getElementById('checklist');
+    const opt = {
+      margin: 5,
+      filename: 'Checklist-Usuario-Maquina.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2, // Melhora a qualidade e evita corte
+        scrollY: 0,
+        useCORS: true
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: {
+        mode: ['css', 'legacy'],
+        avoid: ['.section', '.page-break']
+      }
+    };
+    html2pdf().set(opt).from(element).save();
+  }
+</script> 
+
+</body>
+</html>
+
